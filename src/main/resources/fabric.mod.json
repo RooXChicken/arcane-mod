@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "arcane-mana",
+	"version": "${version}",
+	"name": "Arcane Mana",
+	"description": "Mod that displays skill and mana information",
+	"authors": [
+		"RooXChicken"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/arcane-mana/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.rooxchicken.ArcaneMana"
+		],
+		"client": [
+			"com.rooxchicken.client.ArcaneManaClient"
+		]
+	},
+	"mixins": [
+		"arcane-mana.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
