@@ -35,6 +35,7 @@ public class DrawGUICallback implements HudRenderCallback
 
     private Identifier manaBarTex = Identifier.of("arcane-mana", "textures/gui/manabar.png");
     private Identifier vampiricBar = Identifier.of("arcane-mana", "textures/gui/vampiricBar.png");
+    private Identifier manaBarCrystalTex = Identifier.of("arcane-mana", "textures/gui/manaBarWithCrystal.png");
     private Identifier manaBarOverlayTex = Identifier.of("arcane-mana", "textures/gui/manabarOverlay.png");
 
     //private int barSize = 60;
@@ -102,7 +103,14 @@ public class DrawGUICallback implements HudRenderCallback
         
         context.fill(x+off, y+16, x+off + 87, y+27, 0xFF444444);
         context.fill(x+off, y+16, x+off + (int)(87 * (1.0*ArcaneManaClient.mana/ArcaneManaClient.maxMana)), y+27, 0xFF2244FF);
-        context.drawTexture(manaBarTex, x, y, 0, 0, (int)(90*1.5), (int)(29*1.5), (int)(90*1.5), (int)(29*1.5));
+        if(HandleData.crystalName.equals("empty"))
+            context.drawTexture(manaBarTex, x, y, 0, 0, (int)(110*1.5), (int)(29*1.5), (int)(110*1.5), (int)(29*1.5));
+        else
+        {
+            context.drawTexture(manaBarCrystalTex, x, y, 0, 0, (int)(110*1.5), (int)(29*1.5), (int)(110*1.5), (int)(29*1.5));
+            context.drawTexture(Identifier.of("arcane-mana", "textures/gui/crystals/" + HandleData.crystalName + ".png"), x+131, y+10, 0, 0, 24, 23, 24, 23);
+        }
+
         //RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 0.2f);
         //context.drawTexture(manaBarOverlayTex, x, y, 0, 0, (int)(90*1.5), (int)(29*1.5), (int)(90*1.5), (int)(29*1.5));
         // if(HandleData.bloodEnabled)

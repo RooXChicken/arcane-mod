@@ -17,6 +17,8 @@ public class HandleData
     public static int blood;
     public static int bloodUsage;
     public static boolean bloodEnabled = false;
+    public static int hasCrystal = 0;
+    public static String crystalName = "empty";
 
     public static int displaySkill = 0;
 
@@ -64,7 +66,16 @@ public class HandleData
             case 3:
                 displaySkill--;
                 if(displaySkill <= 0)
+                {
+                    crystalName = "empty";
                     bloodEnabled = false;
+                }
+                hasCrystal--;
+            break;
+
+            case 4:
+                hasCrystal = 2;
+                crystalName = data[2].toLowerCase().replace(" ", "_");
             break;
         }
     }
