@@ -20,6 +20,7 @@ public class HandleData
     public static boolean bloodEnabled = false;
     public static int hasCrystal = 0;
     public static String crystalName = "empty";
+    public static boolean upgraded = false;
 
     public static int displaySkill = 0;
 
@@ -77,6 +78,7 @@ public class HandleData
             case 4:
                 hasCrystal = 2;
                 crystalName = data[2].toLowerCase().replace(" ", "_");
+                upgraded = Boolean.parseBoolean(data[3]);
             break;
         }
     }

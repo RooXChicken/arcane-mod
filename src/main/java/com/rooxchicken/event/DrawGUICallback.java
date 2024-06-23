@@ -118,7 +118,8 @@ public class DrawGUICallback implements HudRenderCallback
             context.drawTexture(Identifier.of("arcane-mana", "textures/gui/crystals/" + HandleData.crystalName + ".png"), x+131, y+10, 0, 0, 24, 23, 24, 23);
         }
 
-        context.drawTexture(Identifier.of("arcane-mana", "textures/gui/star.png"), x+128, y, 0, 0, 16, 16, 16, 16);
+        if(HandleData.upgraded && HandleData.hasCrystal >= 0)
+            context.drawTexture(Identifier.of("arcane-mana", "textures/gui/star.png"), x+128, y, 0, 0, 16, 16, 16, 16);
 
         context.drawCenteredTextWithShadow(textRenderer, Text.of(ArcaneManaClient.mana + "/" + ArcaneManaClient.maxMana), x+82, y+18, 0xFFFFFFFF);
 
