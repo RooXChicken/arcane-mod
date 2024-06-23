@@ -10,6 +10,7 @@ public class HandleData
 {
     public static String manaUse;
     public static String skillName;
+    public static String skillNameFile;
     public static String cooldown;
     public static String nameColor;
     public static String manaUseColor;
@@ -35,6 +36,8 @@ public class HandleData
             case 1: //wand data
                 manaUse = data[2];
                 skillName = data[3];
+                skillNameFile = skillName.toLowerCase().replace("'", "").replace(" ", "_");
+                //ArcaneMana.LOGGER.info(skillNameFile);
                 cooldown = data[4];
                 nameColor = data[5].replace("-", "_");
                 manaUseColor = data[6].replace("-", "_");
@@ -65,12 +68,10 @@ public class HandleData
             break;
             case 3:
                 displaySkill--;
-                if(displaySkill <= 0)
-                {
-                    crystalName = "empty";
-                    bloodEnabled = false;
-                }
                 hasCrystal--;
+                if(displaySkill <= 0)
+                    bloodEnabled = false;
+
             break;
 
             case 4:
