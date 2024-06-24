@@ -3,7 +3,7 @@
 	"id": "arcane-mana",
 	"version": "${version}",
 	"name": "Arcane Mana",
-	"description": "Mod that displays skill and mana information",
+	"description": "Mod that displays skill and mana information. For Arcane SMP",
 	"authors": [
 		"RooXChicken"
 	],
