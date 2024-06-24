@@ -4,6 +4,8 @@ import com.rooxchicken.ArcaneMana;
 import com.rooxchicken.client.ArcaneManaClient;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 
 public class HandleData
@@ -26,6 +28,7 @@ public class HandleData
 
     public static void parseData(String msg)
     {
+        MinecraftClient client = MinecraftClient.getInstance();
         String[] data = msg.split("_");
         int mode = Integer.parseInt(data[1]);
 
@@ -36,6 +39,8 @@ public class HandleData
             break;
             case 1: //wand data
                 manaUse = data[2];
+                if(!skillName.equals(data[3]))
+                    client.world.playSound(client.player, client.player.getBlockPos(), SoundEvents.UI_BUTTON_CLICK.value(), SoundCategory.MASTER, 0.6f, 1f);
                 skillName = data[3];
                 skillNameFile = skillName.toLowerCase().replace("'", "").replace(" ", "_");
                 //ArcaneMana.LOGGER.info(skillNameFile);
