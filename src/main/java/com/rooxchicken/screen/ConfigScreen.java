@@ -30,6 +30,7 @@ public class ConfigScreen extends Screen
     private int clickAction = -1;
 
     private ButtonWidget resetButton;
+    private ButtonWidget bloodBar90Button;
     public boolean ObjectSelected = false;
 
     public ConfigScreen(Text title)
@@ -46,7 +47,14 @@ public class ConfigScreen extends Screen
             ArcaneManaClient.bloodBar.reset();
         }).dimensions(width/2 - 50, height - 30, 100, 20).build();
 
+        bloodBar90Button = ButtonWidget.builder(Text.of("Toggle Bloodbar Rotation"), (button) ->
+        {
+            ArcaneManaClient.bloodBar.rotation = !ArcaneManaClient.bloodBar.rotation;
+            ArcaneManaClient.bloodBar.changeMod();
+        }).dimensions(width/2 - 70, height - 60, 140, 20).build();
+
         addDrawableChild(resetButton);
+        addDrawableChild(bloodBar90Button);
 	}
 	 
 	@Override

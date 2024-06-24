@@ -48,6 +48,8 @@ public class AbilityElement
 	protected double oldScale = 0;
 	protected int length;
 
+	public boolean rotation = false;
+
     public AbilityElement(int _index)
     {
         index = _index;
@@ -173,10 +175,7 @@ public class AbilityElement
 		}
 		if(index == 1)
 		{
-			x1Mod = -7;
-			y1Mod = -2;
-			x2Mod = 27;
-			y2Mod = 70;
+			changeMod();
 			PositionX = 15;
 			PositionY = 60;
 			Scale = 1;
@@ -185,9 +184,27 @@ public class AbilityElement
         SmallestSize = 0.15;
     }
 
+	public void changeMod()
+	{
+		if(!rotation)
+		{
+			x1Mod = -7;
+			y1Mod = -2;
+			x2Mod = 27;
+			y2Mod = 70;
+		}
+		else
+		{
+			x1Mod = -20;
+			y1Mod = -1;
+			x2Mod = 60;
+			y2Mod = 31;
+		}
+	}
+
     public String save()
     {
-        return PositionX + "\n" + PositionY + "\n" + Scale + "\n";
+        return PositionX + "\n" + PositionY + "\n" + Scale + "\n" + rotation + "\n";
     }
 
     public void load(Scanner input)
@@ -195,5 +212,6 @@ public class AbilityElement
         PositionX = Integer.parseInt(input.nextLine());
         PositionY = Integer.parseInt(input.nextLine());
         Scale = Double.parseDouble(input.nextLine());
+        rotation = Boolean.parseBoolean(input.nextLine());
     }
 }

@@ -71,7 +71,7 @@ public class ArcaneManaClient implements ClientModInitializer
 
 	public static void load()
 	{
-		File file = new File("psychis-keys.cfg");
+		File file = new File("arcane-mana.cfg");
 		if(!file.exists())
 		{
 			save();
@@ -92,7 +92,7 @@ public class ArcaneManaClient implements ClientModInitializer
 
 	public static void save()
 	{
-		File file = new File("psychis-keys.cfg");
+		File file = new File("arcane-mana.cfg");
 		try
 		{
 			FileWriter write = new FileWriter(file);

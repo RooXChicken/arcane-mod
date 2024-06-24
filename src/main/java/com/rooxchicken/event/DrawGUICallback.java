@@ -40,6 +40,7 @@ public class DrawGUICallback implements HudRenderCallback
     private Identifier manaBarOverlayTex = Identifier.of("arcane-mana", "textures/gui/manabarOverlay.png");
 
     private Identifier vampiricBar = Identifier.of("arcane-mana", "textures/gui/vampiricBar.png");
+    private Identifier vampiricBar90 = Identifier.of("arcane-mana", "textures/gui/vampiricBar90.png");
 
 
     //private int barSize = 60;
@@ -62,11 +63,21 @@ public class DrawGUICallback implements HudRenderCallback
         {
             startScaling(context, scale2);
 
-            context.fill(pos2X+4, pos2Y+61, pos2X + 19, pos2Y+61 - (int)(52 * (HandleData.blood/20.0)), 0xFFFF2424);
-            context.drawTexture(vampiricBar, pos2X-10, pos2Y, 0, 0, (int)(29*1.5), (int)(47*1.5), (int)(29*1.5), (int)(47*1.5));
-            context.drawCenteredTextWithShadow(textRenderer, Text.of(HandleData.blood + ""), pos2X+12, pos2Y+20, 0xFFFFFFFF);
-            context.drawCenteredTextWithShadow(textRenderer, Text.of("-"), pos2X+12, pos2Y+30, 0xFFFFFFFF);
-            context.drawCenteredTextWithShadow(textRenderer, Text.of("20"), pos2X+12, pos2Y+40, 0xFFFFFFFF);
+            if(!ArcaneManaClient.bloodBar.rotation)
+            {
+                context.fill(pos2X+4, pos2Y+61, pos2X + 19, pos2Y+61 - (int)(52 * (HandleData.blood/20.0)), 0xFFFF2424);
+                context.drawTexture(vampiricBar, pos2X-10, pos2Y, 0, 0, (int)(29*1.5), (int)(47*1.5), (int)(29*1.5), (int)(47*1.5));
+                context.drawCenteredTextWithShadow(textRenderer, Text.of(HandleData.blood + ""), pos2X+12, pos2Y+20, 0xFFFFFFFF);
+                context.drawCenteredTextWithShadow(textRenderer, Text.of("-"), pos2X+12, pos2Y+30, 0xFFFFFFFF);
+                context.drawCenteredTextWithShadow(textRenderer, Text.of("20"), pos2X+12, pos2Y+40, 0xFFFFFFFF);
+            }
+            else
+            {
+                context.fill(pos2X-1, pos2Y+8, pos2X - 1 + (int)(52 * (HandleData.blood/20.0)), pos2Y+23, 0xFFFF2424);
+                context.drawTexture(vampiricBar90, pos2X-10, pos2Y, 0, 0, (int)(47*1.5), (int)(21*1.5), (int)(47*1.5), (int)(21*1.5));
+                context.drawCenteredTextWithShadow(textRenderer, Text.of(" | 20"), pos2X+32, pos2Y+12, 0xFFFFFFFF);
+                context.drawCenteredTextWithShadow(textRenderer, Text.of(HandleData.blood + ""), pos2X+16, pos2Y+12, 0xFFFFFFFF);
+            }
 
             stopScaling(context);
         }
