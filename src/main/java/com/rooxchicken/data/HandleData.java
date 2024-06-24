@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 public class HandleData
 {
     public static String manaUse;
-    public static String skillName;
+    public static String skillName = "";
     public static String skillNameFile;
     public static String cooldown;
     public static String nameColor;
