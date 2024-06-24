@@ -103,7 +103,10 @@ public class DrawGUICallback implements HudRenderCallback
 
             if(HandleData.bloodEnabled)
             {
-                txt.add(1, Text.of(((HandleData.bloodUsage != -2) ? " -" + HandleData.bloodUsage : " +3") + " ").asOrderedText());
+                MutableText bloodTxt = MutableText.of(Text.of(((HandleData.bloodUsage != -2) ? " -" + HandleData.bloodUsage : " +3")).getContent());
+                bloodTxt.setStyle(bloodTxt.getStyle().withColor(0xAA2222));
+                txt.add(1, bloodTxt.asOrderedText());
+                
             }
 
             context.drawCenteredTextWithShadow(textRenderer, skillName.asOrderedText(), pos1X+39+40, pos1Y-2, 0xFFFFFFFF);
