@@ -23,7 +23,6 @@ public class AbilityElement
     public int index = -1;
 	
 	public String KeyName;
-	public KeyBinding UsageKey;
 	
 	public boolean SettingsOpen;
 	public int MouseStatus = -2;

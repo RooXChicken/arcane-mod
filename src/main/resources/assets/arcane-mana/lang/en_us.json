@@ -1,6 +1,4 @@
 {
-	"key.category.ckb": "Infinity Keybinds",
-    "key.ckb.ability1": "Ability 1",
-    "key.ckb.ability2": "Ability 2",
-    "key.ckb.config": "Config Menu"
+    "key.category.arcane": "Arcane Mana",
+	"key.arcane.config": "Open config menu"
 }

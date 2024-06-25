@@ -2,6 +2,7 @@ package com.rooxchicken.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import org.lwjgl.glfw.GLFW;
 
 import com.rooxchicken.ArcaneMana;
+import com.rooxchicken.data.HandleData;
 import com.rooxchicken.event.DrawGUICallback;
 import com.rooxchicken.screen.AbilityElement;
 import com.rooxchicken.screen.ConfigScreen;
@@ -31,7 +33,9 @@ public class ArcaneManaClient implements ClientModInitializer
 	public static AbilityElement manaBar;
 	public static AbilityElement bloodBar;
 
-	private static KeyBinding configKey = new KeyBinding("key.arcane.config", GLFW.GLFW_KEY_C, "key.category.arcane");
+	public static boolean mainRender = false;
+
+	private KeyBinding configKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.arcane.config", GLFW.GLFW_KEY_C, "key.category.arcane"));
 
 	@Override
 	public void onInitializeClient()
@@ -42,6 +46,7 @@ public class ArcaneManaClient implements ClientModInitializer
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) ->
 		{
 			ArcaneManaClient.maxMana = -1;
+			mainRender = false;
 		});
 
 		ClientTickEvents.END_CLIENT_TICK.register(client ->
@@ -60,7 +65,7 @@ public class ArcaneManaClient implements ClientModInitializer
 
 	public static void sendChatCommand(String msg)
 	{
-		if(!msg.equals("hdn_verifymod") && maxMana == -1)
+		if(!msg.equals("hdn_verifymod") && mainRender)
 			return;
 		MinecraftClient client = MinecraftClient.getInstance();
     	ClientPlayNetworkHandler handler = client.getNetworkHandler();

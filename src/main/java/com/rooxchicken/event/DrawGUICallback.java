@@ -48,6 +48,9 @@ public class DrawGUICallback implements HudRenderCallback
     @Override
     public void onHudRender(DrawContext context, float tickDelta)
     {
+        if(!ArcaneManaClient.mainRender)
+            return;
+            
         MinecraftClient client = MinecraftClient.getInstance();
         TextRenderer textRenderer = client.textRenderer;
 

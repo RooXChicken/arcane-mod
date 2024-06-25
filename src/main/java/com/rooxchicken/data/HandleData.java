@@ -36,6 +36,7 @@ public class HandleData
         {
             case 0: //veriy mod
                 ArcaneManaClient.sendChatCommand("hdn_verifymod");
+                ArcaneManaClient.mainRender = true;
             break;
             case 1: //wand data
                 manaUse = data[2];
