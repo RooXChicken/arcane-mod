@@ -45,7 +45,6 @@ public class ArcaneManaClient implements ClientModInitializer
 		HudRenderCallback.EVENT.register(new DrawGUICallback());
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) ->
 		{
-			ArcaneManaClient.maxMana = -1;
 			mainRender = false;
 		});
 
