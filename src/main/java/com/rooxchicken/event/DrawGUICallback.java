@@ -33,14 +33,14 @@ public class DrawGUICallback implements HudRenderCallback
     private int _x = 10;
     private int _y = 10;
 
-    private Identifier manaBarTex = Identifier.of("arcane-mana", "textures/gui/manaBar.png");
-    private Identifier manaBarInTex = Identifier.of("arcane-mana", "textures/gui/manaBarIn.png");
-    private Identifier manaBarInBlackTex = Identifier.of("arcane-mana", "textures/gui/manaBarInBlack.png");
-    private Identifier manaBarCrystalTex = Identifier.of("arcane-mana", "textures/gui/manaBarWithCrystal.png");
-    private Identifier manaBarOverlayTex = Identifier.of("arcane-mana", "textures/gui/manabarOverlay.png");
+    private Identifier manaBarTex = Identifier.of("arcane-mana", "textures/gui/manabar.png");
+    private Identifier manaBarInTex = Identifier.of("arcane-mana", "textures/gui/manabarin.png");
+    private Identifier manaBarInBlackTex = Identifier.of("arcane-mana", "textures/gui/manabarinblack.png");
+    private Identifier manaBarCrystalTex = Identifier.of("arcane-mana", "textures/gui/manabarwithcrystal.png");
+    private Identifier manaBarOverlayTex = Identifier.of("arcane-mana", "textures/gui/manabaroverlay.png");
 
-    private Identifier vampiricBar = Identifier.of("arcane-mana", "textures/gui/vampiricBar.png");
-    private Identifier vampiricBar90 = Identifier.of("arcane-mana", "textures/gui/vampiricBar90.png");
+    private Identifier vampiricBar = Identifier.of("arcane-mana", "textures/gui/vampiricbar.png");
+    private Identifier vampiricBar90 = Identifier.of("arcane-mana", "textures/gui/vampiricbar90.png");
 
 
     //private int barSize = 60;
