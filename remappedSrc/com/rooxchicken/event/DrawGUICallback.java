@@ -92,16 +92,16 @@ public class DrawGUICallback implements HudRenderCallback
             ArrayList<OrderedText> txt = new ArrayList<OrderedText>();
             
             MutableText skillName = MutableText.of(Text.of(HandleData.skillName).getContent());
-            skillName.setStyle(skillName.getStyle().withColor(TextColor.parse(HandleData.nameColor.trim()).getOrThrow()));
+            skillName.setStyle(skillName.getStyle().withColor(TextColor.parse(HandleData.nameColor.trim())));
 
             MutableText manaCost = MutableText.of(Text.of("Cost: " + HandleData.manaUse).getContent());
-            manaCost.setStyle(manaCost.getStyle().withColor(TextColor.parse(HandleData.manaUseColor.trim()).getOrThrow()));
+            manaCost.setStyle(manaCost.getStyle().withColor(TextColor.parse(HandleData.manaUseColor.trim())));
             txt.add(manaCost.asOrderedText());
 
             txt.add(Text.of(" | ").asOrderedText());
 
             MutableText cooldownTxt = MutableText.of(Text.of(HandleData.cooldown).getContent());
-            cooldownTxt.setStyle(cooldownTxt.getStyle().withColor(TextColor.parse(HandleData.cooldownColor.trim()).getOrThrow()));
+            cooldownTxt.setStyle(cooldownTxt.getStyle().withColor(TextColor.parse(HandleData.cooldownColor.trim())));
             txt.add(cooldownTxt.asOrderedText());
 
             if(HandleData.bloodEnabled)
